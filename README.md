@@ -2,17 +2,6 @@
 
 ![](https://github.com/LikeLion-at-CAU-12th/kangRok-Lee/blob/git-session/mutsa.gif)
 
-\  _______________
-\| 멋쟁이사자처럼 12기 |
-\|   백엔드 이강록    |
-\ ===============
-\               \
-\                \
-\                  ^__^
-\                  (oo)\_______
-\                  (__)\       )\/\
-\                      ||----w |
-\                      ||     ||
 
 ### 3주차 Django 과제
 
