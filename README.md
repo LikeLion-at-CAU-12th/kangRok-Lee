@@ -19,10 +19,13 @@ work in progress:
 ![django](https://img.shields.io/badge/Django-092E20?style=for-the-badge&logo=django&logoColor=white)
 
 
-# 3주차 Django 과제
+# 4주차 DB 과제
 
-![](https://github.com/LikeLion-at-CAU-12th/kangRok-Lee/assets/34326056/8fdf38ae-2ff5-4ca0-a83f-18f82f06ae91)
-week3/posts/templates/views.py 코드
-
-![](https://github.com/LikeLion-at-CAU-12th/kangRok-Lee/assets/34326056/1c2f54aa-80c3-47b2-894b-965eca9a331b)
-Postman 스샷
+![](https://github.com/LikeLion-at-CAU-12th/kangRok-Lee/assets/34326056/2744953f-c85b-424c-b341-cccbb26e4a47)
+요렇게 ERD를 만들고
+![](https://github.com/LikeLion-at-CAU-12th/kangRok-Lee/assets/34326056/af2f65b8-8094-4f21-b34d-6ffe1d0b4f38)
+이렇게 migrate해서 sqlite DB에 넣어주고
+![](https://github.com/LikeLion-at-CAU-12th/kangRok-Lee/assets/34326056/48c68694-d597-4cbe-bf9a-792b648e6fe0)
+admin에서 Posts에 들어온 것을 확인하고 
+![](https://github.com/LikeLion-at-CAU-12th/kangRok-Lee/assets/34326056/62697727-0d11-46a7-be71-a4cbe3c34c2a)
+comment 창에 들어가면 아래와 같이 작성칸을 확인할 수 있습니다!
