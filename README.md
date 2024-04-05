@@ -19,10 +19,11 @@ work in progress:
 ![django](https://img.shields.io/badge/Django-092E20?style=for-the-badge&logo=django&logoColor=white)
 
 
-# 3주차 Django 과제
+# 4주차 DB 과제 (수정)
 
-![](https://github.com/LikeLion-at-CAU-12th/kangRok-Lee/assets/34326056/8fdf38ae-2ff5-4ca0-a83f-18f82f06ae91)
-week3/posts/templates/views.py 코드
-
-![](https://github.com/LikeLion-at-CAU-12th/kangRok-Lee/assets/34326056/1c2f54aa-80c3-47b2-894b-965eca9a331b)
-Postman 스샷
+![](https://github.com/LikeLion-at-CAU-12th/kangRok-Lee/assets/34326056/712385ac-3bb5-44b3-afed-e8d97e690967)
+요렇게 ERD를 만들고
+![](https://github.com/LikeLion-at-CAU-12th/kangRok-Lee/assets/34326056/d50e8d8b-ff47-4ba4-91cd-4e46f644bf64)
+모델을 이렇게 수정해주고
+![](https://github.com/LikeLion-at-CAU-12th/kangRok-Lee/assets/34326056/5db23fc2-6819-439b-86bf-251a49f5a120)
+comment 창에 들어가면 아래와 같이 작성자와 작성칸을 확인할 수 있어요!
