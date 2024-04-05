@@ -19,11 +19,9 @@ work in progress:
 ![django](https://img.shields.io/badge/Django-092E20?style=for-the-badge&logo=django&logoColor=white)
 
 
-# 4주차 DB 과제 (수정)
+# 5주차 스탠다드 과제
 
-![](https://github.com/LikeLion-at-CAU-12th/kangRok-Lee/assets/34326056/712385ac-3bb5-44b3-afed-e8d97e690967)
-요렇게 ERD를 만들고
-![](https://github.com/LikeLion-at-CAU-12th/kangRok-Lee/assets/34326056/d50e8d8b-ff47-4ba4-91cd-4e46f644bf64)
-모델을 이렇게 수정해주고
-![](https://github.com/LikeLion-at-CAU-12th/kangRok-Lee/assets/34326056/5db23fc2-6819-439b-86bf-251a49f5a120)
-comment 창에 들어가면 아래와 같이 작성자와 작성칸을 확인할 수 있어요!
+**1번** 
+![](https://github.com/LikeLion-at-CAU-12th/kangRok-Lee/assets/34326056/3187557c-a58b-4c08-9e7d-277208aff36b)
+**2번** 
+![](https://github.com/LikeLion-at-CAU-12th/kangRok-Lee/assets/34326056/f2046471-6ff0-40cc-b80e-5f2468cf866f)
