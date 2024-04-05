@@ -3,6 +3,8 @@ from django.http import JsonResponse # 추가
 from django.shortcuts import get_object_or_404 # 추가
 from django.views.decorators.http import require_http_methods
 from posts.models import *
+from django.utils import timezone
+from datetime import timedelta
 
 # Create your views here.
 import json
@@ -153,6 +155,29 @@ def post_detail(request, id):
             'status': 200,
             'message': '게시글 삭제 성공',
             'data': None
+        })
+
+@require_http_methods(["GET"])
+def get_recent_posts(request):
+    if request.method == "GET":
+        one_week_ago = timezone.now() - timedelta(weeks=1)
+        recent_posts = Post.objects.filter(created_at__gte=one_week_ago)
+        recent_posts_json = []
+    
+        for post in recent_posts:
+            post_json = {
+                "id": post.id,
+                "title" : post.title,
+                "writer": post.writer,
+                "created_at": post.created_at,
+                "category": post.category
+            }
+            recent_posts_json.append(post_json)
+
+        return JsonResponse({
+            'status': 200,
+            'message': '최근 일주일 내 작성된 게시글 목록 조회 성공',
+            'data': recent_posts_json
         })
 
 @require_http_methods(["GET"])

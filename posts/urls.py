@@ -7,4 +7,5 @@ urlpatterns = [
     path('page', index, name='my-page'),
     path('introduction', introduction, name="peer-intro"),
     path('<int:id>', post_detail, name = "게시글 조회"),
+    path('recent', get_recent_posts, name="posts in recent week")
 ]
