@@ -161,7 +161,7 @@ def post_detail(request, id):
 def get_recent_posts(request):
     if request.method == "GET":
         one_week_ago = timezone.now() - timedelta(weeks=1)
-        recent_posts = Post.objects.filter(created_at__gte=one_week_ago)
+        recent_posts = Post.objects.filter(created_at__gte=one_week_ago).order_by('-created_at')
         recent_posts_json = []
     
         for post in recent_posts:
