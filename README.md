@@ -19,9 +19,6 @@ work in progress:
 ![django](https://img.shields.io/badge/Django-092E20?style=for-the-badge&logo=django&logoColor=white)
 
 
-# 5주차 스탠다드 과제
-
-**1번** 
-![](https://github.com/LikeLion-at-CAU-12th/kangRok-Lee/assets/34326056/3187557c-a58b-4c08-9e7d-277208aff36b)
-**2번** 
-![](https://github.com/LikeLion-at-CAU-12th/kangRok-Lee/assets/34326056/f2046471-6ff0-40cc-b80e-5f2468cf866f)
+# 6주차 스탠다드 과제
+**Django 중 `DEBUG` 등급 이상을 log합니다.**
+![debug.log](https://github.com/LikeLion-at-CAU-12th/kangRok-Lee/assets/34326056/db647a88-58b3-48c3-851c-2f50457d5919)
