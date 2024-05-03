@@ -9,5 +9,7 @@ urlpatterns = [
     # path('<int:id>', post_detail, name = "게시글 조회"),
     # path('recent', get_recent_posts, name="posts in recent week")
     path('', PostList.as_view()),
-    path('<int:id>/', PostDetail.as_view())
+    path('<int:pid>/', PostDetail.as_view()),
+    path('<int:pid>/comments/', CommentList.as_view()),
+    path('comments/<int:cid>/', CommentDetail.as_view()),
 ]
