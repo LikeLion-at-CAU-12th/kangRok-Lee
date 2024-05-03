@@ -59,14 +59,15 @@ def get_post_detail(request,id):
 @require_http_methods(["POST", "GET"])
 def post_list(request):
     if request.method == "POST":
-        body = json.loads(request.body.decode('utf-8'))
+        # body = json.loads(request.body.decode('utf-8'))
 
         # new_post는 QuerySet!
         new_post = Post.objects.create(
-            writer = body['writer'],
-            title = body['title'],
-            content = body['content'],
-            category = body['category']
+            writer=request.POST['writer'],
+            title=request.POST['title'],
+            content=request.POST['content'],
+            category=request.POST['category'],
+            image=request.FILES.get('image', None)  # handle image upload
         )
 
         new_post_json = {
@@ -75,7 +76,8 @@ def post_list(request):
             "writer": new_post.writer,
             "title" : new_post.title,
             "content": new_post.content,
-            "category": new_post.category
+            "category": new_post.category,
+            "imageURL": str(new_post.image.url) if new_post.image else None,
         }
 
         return JsonResponse({

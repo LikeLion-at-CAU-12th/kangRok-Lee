@@ -42,6 +42,10 @@ DEBUG = True
 ALLOWED_HOSTS = ["*"]
 
 
+# MEDIA
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
 # Application definition
 
 DJANGO_APPS = [
@@ -59,7 +63,7 @@ PROJECT_APPS = [
 ]
 
 THIRD_PARTY_APPS = [
-    'corsheaders'
+    'corsheaders',
 ]
 
 
