@@ -59,15 +59,14 @@ def get_post_detail(request,id):
 @require_http_methods(["POST", "GET"])
 def post_list(request):
     if request.method == "POST":
-        # body = json.loads(request.body.decode('utf-8'))
+        body = json.loads(request.body.decode('utf-8'))
 
         # new_post는 QuerySet!
         new_post = Post.objects.create(
-            writer=request.POST['writer'],
-            title=request.POST['title'],
-            content=request.POST['content'],
-            category=request.POST['category'],
-            image=request.FILES.get('image', None)  # handle image upload
+            writer = body['writer'],
+            title = body['title'],
+            content = body['content'],
+            category = body['category']
         )
 
         new_post_json = {
@@ -76,8 +75,7 @@ def post_list(request):
             "writer": new_post.writer,
             "title" : new_post.title,
             "content": new_post.content,
-            "category": new_post.category,
-            "imageURL": str(new_post.image.url) if new_post.image else None,
+            "category": new_post.category
         }
 
         return JsonResponse({
@@ -201,3 +199,77 @@ def comment_list(request, id):
             'message': 'fetched all comments',
             'data': comment_json_all
         })
+    
+
+from .serializers import PostSerializer, CommentSerializer
+
+# APIView를 사용하기 위해 import
+from rest_framework.views import APIView
+from rest_framework.response import Response
+from rest_framework import status
+from django.http import Http404
+
+class PostList(APIView):
+    def post(self, request, format=None):
+        serializer = PostSerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+    
+    def get(self, request, format=None):
+        posts = Post.objects.all()
+        serializer = PostSerializer(posts, many=True)
+        return Response(serializer.data)
+
+class PostDetail(APIView):
+    def get(self, request, pid):
+        post = get_object_or_404(Post, id=pid)
+        serializer = PostSerializer(post)
+        return Response(serializer.data)
+    
+    def put(self, request, pid):
+        post = get_object_or_404(Post, id=pid)
+        serializer = PostSerializer(post, data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+    
+    def delete(self, request, pid):
+        post = get_object_or_404(Post, id=pid)
+        post.delete()
+        return Response(status=status.HTTP_204_NO_CONTENT)
+    
+class CommentList(APIView):
+    def get(self, request, pid):
+        comments = Comment.objects.filter(post_id=pid)
+        serializer = CommentSerializer(comments, many=True)
+        return Response(serializer.data)
+    
+    def post(self, request, pid):    
+        serializer = CommentSerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+class CommentDetail(APIView):
+    def get(self, request, cid): #'request' formal param 적어주자, 안 적으면 에러남 
+        comment = get_object_or_404(Comment, id=cid)
+        serializer = CommentSerializer(comment)
+        return Response(serializer.data)
+
+    def put(self, request, cid):
+        comment = get_object_or_404(Comment, id=cid)
+        serializer = CommentSerializer(comment, data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+    def delete(self, request, cid):
+        comment = get_object_or_404(Comment, id=cid)
+        comment.delete()
+        return Response(status=status.HTTP_204_NO_CONTENT)
+    

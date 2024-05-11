@@ -19,6 +19,6 @@ work in progress:
 ![django](https://img.shields.io/badge/Django-092E20?style=for-the-badge&logo=django&logoColor=white)
 
 
-# 6주차 스탠다드 과제
-**Django 중 `DEBUG` 등급 이상을 log합니다.**
-![debug.log](https://github.com/LikeLion-at-CAU-12th/kangRok-Lee/assets/34326056/db647a88-58b3-48c3-851c-2f50457d5919)
+# 7주차 스탠다드 과제
+**여러 개의 comment 관련 request 중 개별 comment를 GET하는걸 대표로 가져왔습니당**
+![](https://github.com/LikeLion-at-CAU-12th/kangRok-Lee/assets/34326056/4bcedcaf-cb85-4e7f-a9c9-2da07b671db2)
