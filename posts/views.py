@@ -13,7 +13,7 @@ from rest_framework.response import Response
 from rest_framework import status
 from django.http import Http404
 from rest_framework.permissions import IsAuthenticated
-from accounts.permissions import KeyHeaderPermission
+from accounts.permissions import KeyHeaderPermission, IsPostAuthor
 
 def hello_world(request):
     if request.method == "GET":
@@ -60,7 +60,7 @@ class PostListAPIView(generics.ListCreateAPIView):
         return super(PostListAPIView, self).get_permissions()
     
 class PostDetailAPIView(generics.RetrieveUpdateDestroyAPIView):
-    permission_classes = [KeyHeaderPermission, IsAuthenticated]
+    permission_classes = [KeyHeaderPermission, IsPostAuthor, IsAuthenticated]
     queryset = Post.objects.all()
     serializer_class = PostSerializer
     lookup_url_kwarg = 'pid'

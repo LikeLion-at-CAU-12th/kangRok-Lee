@@ -28,3 +28,12 @@ class KeyHeaderPermission(permissions.BasePermission):
         if key == get_secret("ORANGE_CATS"):
             return True
         return False
+    
+class IsPostAuthor(permissions.BasePermission):
+    """
+    Custom permission to only allow logged in author of a post to edit it.
+    """
+
+    def has_object_permission(self, request, view, obj):
+        # Write permissions are only allowed to the author of the post.
+        return obj.author == request.user
