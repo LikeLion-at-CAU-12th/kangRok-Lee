@@ -12,6 +12,7 @@ from rest_framework import generics
 from rest_framework.response import Response
 from rest_framework import status
 from django.http import Http404
+from rest_framework.permissions import IsAuthenticated
 
 def hello_world(request):
     if request.method == "GET":
@@ -47,6 +48,7 @@ def get_recent_posts(request):
         })
 
 class PostListAPIView(generics.ListCreateAPIView):
+    permission_classes = []
     queryset = Post.objects.all()
     serializer_class = PostSerializer
     
@@ -86,4 +88,3 @@ class CommentDetail(APIView):
         comment = get_object_or_404(Comment, id=cid)
         comment.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)
-    
