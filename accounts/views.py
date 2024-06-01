@@ -151,3 +151,4 @@ def google_callback(request):
             return res
     except:       # 회원가입이 필요함
         return JsonResponse(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+        # return redirect("signup") #urls.py에 정의된 회원가입 페이지로 이동
