@@ -19,10 +19,5 @@ work in progress:
 ![django](https://img.shields.io/badge/Django-092E20?style=for-the-badge&logo=django&logoColor=white)
 
 
-# 8주차 스탠다드 과제
-**1. 우선 새 계정을 만들어주고 access token을 발급받았습니다.**
-![](https://github.com/LikeLion-at-CAU-12th/kangRok-Lee/assets/34326056/626d77fd-1513-4873-9ea7-1b3ad5262136)
-**2. 게시글을 작성합니다. 이때 X-Super-Secret-Key를 설정하여 요청을 보냅니다.**
-![](https://github.com/LikeLion-at-CAU-12th/kangRok-Lee/assets/34326056/3120bfb4-6790-4790-bbe1-b3dfc9bba555)
-**3. X-Super-Secret-Key 값이 일치하지 않으면 로그인여부와 상관없이 GET요청조차 아래와 같이 막힙니다.**
-![](https://github.com/LikeLion-at-CAU-12th/kangRok-Lee/assets/34326056/61be2319-0354-415e-8461-7547d8975a07)
+# 9주차 스탠다드 과제
+![](https://github.com/LikeLion-at-CAU-12th/kangRok-Lee/assets/34326056/64c47b02-4a0a-4946-82e4-b7ab70602d85)
