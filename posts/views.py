@@ -12,6 +12,8 @@ from rest_framework import generics
 from rest_framework.response import Response
 from rest_framework import status
 from django.http import Http404
+from rest_framework.permissions import IsAuthenticated
+from accounts.permissions import KeyHeaderPermission, IsPostAuthor
 
 def hello_world(request):
     if request.method == "GET":
@@ -49,13 +51,22 @@ def get_recent_posts(request):
 class PostListAPIView(generics.ListCreateAPIView):
     queryset = Post.objects.all()
     serializer_class = PostSerializer
+
+    def get_permissions(self):
+        if self.request.method == 'GET':
+            self.permission_classes = [KeyHeaderPermission]
+        else: 
+            self.permission_classes = [KeyHeaderPermission, IsAuthenticated]
+        return super(PostListAPIView, self).get_permissions()
     
 class PostDetailAPIView(generics.RetrieveUpdateDestroyAPIView):
+    permission_classes = [KeyHeaderPermission, IsPostAuthor, IsAuthenticated]
     queryset = Post.objects.all()
     serializer_class = PostSerializer
     lookup_url_kwarg = 'pid'
     
 class CommentList(APIView):
+    permission_classes = [KeyHeaderPermission, IsAuthenticated]
     def get(self, request, pid):
         comments = Comment.objects.filter(post_id=pid)
         serializer = CommentSerializer(comments, many=True)
@@ -69,6 +80,7 @@ class CommentList(APIView):
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 class CommentDetail(APIView):
+    permission_classes = [KeyHeaderPermission, IsAuthenticated]
     def get(self, request, cid): #'request' formal param 적어주자, 안 적으면 에러남 
         comment = get_object_or_404(Comment, id=cid)
         serializer = CommentSerializer(comment)
@@ -86,4 +98,3 @@ class CommentDetail(APIView):
         comment = get_object_or_404(Comment, id=cid)
         comment.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)
-    

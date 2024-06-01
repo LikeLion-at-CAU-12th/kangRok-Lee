@@ -19,14 +19,10 @@ work in progress:
 ![django](https://img.shields.io/badge/Django-092E20?style=for-the-badge&logo=django&logoColor=white)
 
 
-# 7주차 스탠다드 과제
-**여러 개의 comment 관련 request 중 개별 comment를 GET하는걸 대표로 가져왔습니당**
-![](https://github.com/LikeLion-at-CAU-12th/kangRok-Lee/assets/34326056/4bcedcaf-cb85-4e7f-a9c9-2da07b671db2)
-
-# 7주차 챌린지 과제
-**PostList, PostDetail를 GenericAPIView를 이용해 리팩토링하였습니다!**
-기본적인 기능은 오버라이딩 없이 두줄만에 구현이 된다는게 참 신기하네요....
-![](https://github.com/LikeLion-at-CAU-12th/kangRok-Lee/assets/34326056/bd85e787-23ce-4a4f-9aef-7faaae4496d9)
-
-**Swagger(OpenAPI) 연결**
-![](https://github.com/LikeLion-at-CAU-12th/kangRok-Lee/assets/34326056/98e32ddf-e36e-4883-ba7d-4f676a534e68)
+# 8주차 스탠다드 과제
+**1. 우선 새 계정을 만들어주고 access token을 발급받았습니다.**
+![](https://github.com/LikeLion-at-CAU-12th/kangRok-Lee/assets/34326056/626d77fd-1513-4873-9ea7-1b3ad5262136)
+**2. 게시글을 작성합니다. 이때 X-Super-Secret-Key를 설정하여 요청을 보냅니다.**
+![](https://github.com/LikeLion-at-CAU-12th/kangRok-Lee/assets/34326056/3120bfb4-6790-4790-bbe1-b3dfc9bba555)
+**3. X-Super-Secret-Key 값이 일치하지 않으면 로그인여부와 상관없이 GET요청조차 아래와 같이 막힙니다.**
+![](https://github.com/LikeLion-at-CAU-12th/kangRok-Lee/assets/34326056/61be2319-0354-415e-8461-7547d8975a07)
