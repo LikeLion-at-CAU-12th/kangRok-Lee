@@ -24,6 +24,7 @@ class Post(BaseModel) :
     content = models.TextField(verbose_name="내용")
     category = models.CharField(choices=CHOICES, max_length=20)
     # image = models.ImageField(verbose_name="사진 첨부", upload_to='images/', null=True, blank=True)
+    thumbnail = models.ImageField(null=True, blank=True, verbose_name="썸네일")
 
 class Comment(BaseModel) :
     id = models.AutoField(primary_key=True)
