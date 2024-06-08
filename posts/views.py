@@ -14,6 +14,7 @@ from rest_framework import status
 from django.http import Http404
 from rest_framework.permissions import IsAuthenticated
 from accounts.permissions import KeyHeaderPermission, IsPostAuthor
+import os
 
 def hello_world(request):
     if request.method == "GET":
@@ -59,6 +60,16 @@ class PostListAPIView(generics.ListCreateAPIView):
             self.permission_classes = [KeyHeaderPermission, IsAuthenticated]
         return super(PostListAPIView, self).get_permissions()
     
+    # @Override
+    def create(self, request, *args, **kwargs):
+        thumbnail = request.data.get('thumbnail')
+        if thumbnail: 
+            ext = os.path.splitext(thumbnail.name)[1]
+            if ext.lower() == ".png":
+                return Response(".png extensions not allowed", status=status.HTTP_400_BAD_REQUEST)
+        return super(PostListAPIView, self).create(request, *args, **kwargs)
+
+
 class PostDetailAPIView(generics.RetrieveUpdateDestroyAPIView):
     permission_classes = [KeyHeaderPermission, IsPostAuthor, IsAuthenticated]
     queryset = Post.objects.all()
